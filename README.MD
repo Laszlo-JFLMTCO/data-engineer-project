@@ -1,3 +1,13 @@
+# Summary
+There are several folders in the updated repository. Quick overview of their content:
+- `requirement_analysis`: supporting notes/files I've prepared to analyze the dataset CSV files and identify the various models need to be built to support the required functionality. For quick evaluation a few sample files were created to avoid working with the large CSV files during the analysis phase.
+- `deliverables`: this is where each of the three required deliverables are stored in their on folder. See the README in each of these folders for specific details about each deliverable.
+
+## General Workflow
+No PR process was followed due to single user working in a forked repo. All pushes went to forked repo `master` directly.
+
+Original README content preserved below
+________
 # Overview
 The goal of this project is to get an idea of:
 * Your ability to work with and grok data 
