@@ -1,0 +1,57 @@
+Table production_companies {
+  id int [unique, pk] // Unique ID in the Guild database
+  company_input_id int // As it was provided in the customer input CSV
+  name varchar
+  created_at timestamp [default: `now()`]
+}
+
+Table movies {
+  id int [unique, pk] // Unique ID in the Guild database
+  movie_input_id int // As it was provided in the customer input CSV
+  budget int [default: 0]
+  title varchar
+  release_date timestamp
+  released boolean
+  created_at timestamp [default: `now()`]
+}
+
+Table genres {
+  id int [unique, pk] // Unique ID in the Guild database
+  genre_input_id int // As it was provided in the customer input CSV
+  budget int [default: 0]
+  name varchar
+  created_at timestamp [default: `now()`]
+}
+
+Table popularity_votes {
+  id int [unique, pk] // Unique ID in the Guild database
+  movie_input_id int // As it was provided in the customer input CSV
+  budget int [default: 0]
+  rating float
+  submitted timestamp
+  created_at timestamp [default: `now()`]
+}
+
+Table daily_revenues {
+  id int [unique, pk, ref: > movies.id] // Unique ID in the Guild database
+  movie_input_id int // As it was provided in the customer input CSV
+  received_date timestamp
+  budget int [default: 0]
+  rating float
+  created_at timestamp [default: `now()`]
+}
+
+Table production_company_movie {
+  movie_id int [ref: > production_companies.id]
+  production_company_id int [ref: > movies.id]
+}
+
+Table movie_genre {
+  movie_id int [ref: > genres.id]
+  genre_id int [ref: > movies.id]
+}
+
+Table popularity_vote_movie {
+  movie_id int [ref: > popularity_votes.id]
+  popularity_vote_id int [ref: > movies.id]
+}
