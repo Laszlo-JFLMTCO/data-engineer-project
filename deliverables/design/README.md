@@ -2,6 +2,7 @@
 The purpose of this page is to capture key details regarding the Design.
 
 ## Block Diagram
+![](simple_blockdiagram.png)
 
 ## Details
 In general the following components to be deployed to AWS.  
