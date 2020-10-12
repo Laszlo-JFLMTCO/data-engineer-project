@@ -3,12 +3,13 @@ require_relative 'helper'
 require_relative 'production_company_exporter'
 require_relative 'movie_exporter'
 require_relative 'genre_exporter'
+require_relative 'daily_revenue_exporter'
 
 class MoviesMetadataParser
   CSV_ROW_INCREMENTS = 1.freeze
   COLUMN_PRODUCTION_COMPANIES = "production_companies".freeze
 
-  attr_reader :input_csv, :output_dir, :prod_comp_exporter, :movie_exporter, :genre_exporter
+  attr_reader :input_csv, :output_dir, :prod_comp_exporter, :movie_exporter, :genre_exporter, :revenue_exporter
 
   def initialize(input_csv, output_dir)
     @input_csv = input_csv
@@ -16,6 +17,7 @@ class MoviesMetadataParser
     @prod_comp_exporter = ProductionCompanyExporter.new(output_dir)
     @movie_exporter = MovieExporter.new(output_dir)
     @genre_exporter = GenreExporter.new(output_dir)
+    @revenue_exporter = DailyRevenueExporter.new(output_dir)
   end
 
   def process
@@ -23,6 +25,7 @@ class MoviesMetadataParser
       @prod_comp_exporter.write(row[COLUMN_PRODUCTION_COMPANIES])
       @movie_exporter.write(row)
       @genre_exporter.write(row)
+      @revenue_exporter.write(row)
     end
     close
   end
@@ -31,5 +34,6 @@ class MoviesMetadataParser
     prod_comp_exporter.close
     movie_exporter.close
     genre_exporter.close
+    revenue_exporter.close
   end
 end
