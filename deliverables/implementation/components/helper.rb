@@ -14,5 +14,9 @@ class Helper
     def convert_string_to_array(input)
       JSON.parse(input.gsub("'", "\""))
     end
+
+    def epoch_to_timestamp(epoch)
+      Time.at(epoch).utc
+    end
   end
 end
