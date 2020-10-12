@@ -24,3 +24,5 @@ One CSV file with header row per model (see `deliverables/data_model/README.md` 
 ## Known Limitations
 ### No Test for CLI
 CLI input is only required to run it locally, `spec` folder does not have test for this feature.
+### Low Test Coverage
+Some unit tests were included to provide example for testing approach to be used for this implementation.
