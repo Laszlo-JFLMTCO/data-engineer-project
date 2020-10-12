@@ -19,7 +19,20 @@ This implementation assumes the followings regarding the input CSVs:
 - preliminary checks for required input CSV files' presence has been completed
 - preliminary checks of the input CSV files' integrity has been completed (files are not currupted, each has a header row, header rows have the required columns defined (unique list per input file), etc)
 ### Output
-One CSV file with header row per model (see `deliverables/data_model/README.md` for more details), where each row after the header row would represent required details for a single entry (row of that model) in the database. => see `requirement_analysis/README.md` for additional details considered
+One CSV file with header row per model (see `deliverables/data_model/README.md` for more details), where each row after the header row would represent required details for a single entry (row of that model) in the database. => see `requirement_analysis/README.md` for additional details considered.  
+After each run, an epoch timestamped output folder is created (example: `output-1602489908`), which will contain the following list of CSVs as input for the `Seeder Service` (see the `Design` README for details)
+```
+daily_revenue.csv
+genre.csv
+movie.csv
+popularity_vote.csv
+production_company.csv
+```
+
+## General Assumptions
+- `revenue` is evenly distributed through the number of `runtime` days  
+- movie `budget` is only available for the year when the movie was released instead of spread out through multiple years  
+- Only movies with "Released" `status` are considered to be released to the public  
 
 ## Improvement/Refactoring Opportunities, Highlights
 - Clearly specify character set supporting => input verification against that character set will have to be implemented
