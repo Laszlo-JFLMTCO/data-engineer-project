@@ -1,6 +1,15 @@
 # Requirement Analysis
 The purpose of this page is to capture key details regarding the Requirement Analysis step.
 
+## Overview
+The following details are available in the `csv_input_overview` file (both `xlsx` and `MacOS numbers` format are available).  
+### Data Models Required
+Summary of what input CSV data to feed into what Data Model detail.  
+![](model_requirements.png)
+### Input CSV Evaluation
+Summary of what details are available in each of the provided CSV files.  
+![](input_CSV_review.png)
+
 ## Key Details
 ### Input
 Requires a specific list of input CSV files with specific filenames as defined below.
